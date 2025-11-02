@@ -60,7 +60,7 @@ nbsphinx_allow_errors = False  # Don't allow errors in notebooks
 # nbsphinx kernel name
 nbsphinx_kernel_name = 'python3'
 
-# Add Binder link for interactive notebooks
+# Add Google Colab and GitHub links for interactive notebooks
 nbsphinx_prolog = """
 .. raw:: html
 
@@ -69,11 +69,11 @@ nbsphinx_prolog = """
             <span class="icon">🚀</span> <strong>Run This Code Interactively!</strong>
         </p>
         <p style="margin: 0 0 10px 0;">
-            Click the button below to launch this notebook in an interactive environment where you can edit and run all code cells:
+            Open this notebook in Google Colab - instant, fast, and free! No installation needed:
         </p>
-        <a href="https://mybinder.org/v2/gh/TetewHeroez/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb" 
+        <a href="https://colab.research.google.com/github/TetewHeroez/supertropical-algebra/blob/main/docs/source/examples/tutorial.ipynb" 
            target="_blank">
-           ▶️ Launch on Binder (Interactive)
+           <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
         </a>
         <a href="https://github.com/TetewHeroez/supertropical-algebra/blob/main/docs/source/examples/tutorial.ipynb" 
            target="_blank">

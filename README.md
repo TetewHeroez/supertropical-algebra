@@ -2,11 +2,11 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TetewHeroez/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TetewHeroez/supertropical-algebra/blob/main/docs/source/examples/tutorial.ipynb)
 
 A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.
 
-> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything. A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.
+> **🚀 Try it now!** Click the "Open in Colab" badge above to run the interactive tutorial instantly in your browser - fast and free! No installation needed.
 
 ## ✨ Features
 
