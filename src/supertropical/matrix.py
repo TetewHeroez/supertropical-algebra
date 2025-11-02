@@ -173,11 +173,11 @@ class SupertropicalMatrix:
 
     def solve(self, b: 'SupertropicalMatrix'):
         """
-        Solves the supertropical linear system A @ x = b using
+        Solves the supertropical linear system A * x = b using
         a version of Cramer's Rule. 
 
         The solution is calculated using the adjoint matrix:
-        x = adj(A) @ b @ (per(A))^{-1}
+        x = adj(A) * b * (per(A))^{-1}
         
         This provides the unique maximal tangible solution to the
         system $Ax \mid_{gs}= b$. 
@@ -213,13 +213,13 @@ class SupertropicalMatrix:
         # 3. Calculate the tangible adjoint matrix 
         adj_A = self.adjoint()
         
-        # 4. Calculate solution x = adj(A) @ b @ per(A)^-1
+        # 4. Calculate solution x = adj(A) * b * per(A)^-1
         # Reshape b if needed to ensure column vector
         if len(b.shape) == 1:
             b_reshaped = SupertropicalMatrix(b.data.reshape(-1, 1))
         else:
             b_reshaped = b
             
-        x = (adj_A @ b_reshaped) * per_A_inv
+        x = (adj_A * b_reshaped) * per_A_inv
         
         return x
