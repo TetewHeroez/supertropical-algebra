@@ -20,7 +20,7 @@ Elements
 A supertropical semiring contains two types of elements:
 
 - **Tangible elements**: Regular elements, denoted as :math:`a`
-- **Ghost elements**: Special elements marked with ν, denoted as :math:`a^\nu`
+- **Ghost elements**: Special elements marked with :math:`\nu`, denoted as :math:`a^\nu`
 
 The **zero element** is :math:`-\infty` (additive identity).
 

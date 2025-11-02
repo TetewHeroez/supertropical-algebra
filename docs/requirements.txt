@@ -4,4 +4,5 @@ nbsphinx
 myst-parser
 ipython
 jupyter
+ipykernel
 numpy>=1.20.0

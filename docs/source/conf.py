@@ -48,8 +48,8 @@ intersphinx_mapping = {
 }
 
 # -- Options for nbsphinx ---------------------------------------------------
-nbsphinx_execute = 'never'  # Don't execute notebooks (use saved outputs)
-nbsphinx_allow_errors = True  # Allow errors in notebooks during build
+nbsphinx_execute = 'always'  # Execute notebooks to show live code
+nbsphinx_allow_errors = False  # Don't allow errors in notebooks
 
-# Disable ipykernel requirement for static documentation
-nbsphinx_requirejs_path = ''
+# nbsphinx kernel name
+nbsphinx_kernel_name = 'python3'
