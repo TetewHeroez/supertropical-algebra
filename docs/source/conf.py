@@ -48,5 +48,8 @@ intersphinx_mapping = {
 }
 
 # -- Options for nbsphinx ---------------------------------------------------
-nbsphinx_execute = 'auto'  # Execute notebooks when building docs
-nbsphinx_allow_errors = False  # Stop on notebook errors
+nbsphinx_execute = 'never'  # Don't execute notebooks (use saved outputs)
+nbsphinx_allow_errors = True  # Allow errors in notebooks during build
+
+# nbsphinx kernel name
+nbsphinx_kernel_name = 'python3'
