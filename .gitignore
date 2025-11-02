@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sphinx build
+docs/build/
+
+# Byte-compiled / distribution
+build/
+dist/

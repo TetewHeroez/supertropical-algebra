@@ -1,0 +1,16 @@
+# Core dependencies
+numpy>=1.20.0
+
+# Development tools
+pytest>=7.0
+pytest-cov
+black
+flake8
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme
+nbsphinx
+myst-parser
+ipython
+jupyter
