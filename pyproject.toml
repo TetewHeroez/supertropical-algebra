@@ -10,7 +10,7 @@ authors = [
     {name = "Supertropical Team", email = "your.email@example.com"}
 ]
 description = "A Python package for supertropical algebra with tangible and ghost elements"
-readme = "README.rst"
+readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
