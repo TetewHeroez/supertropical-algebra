@@ -37,7 +37,32 @@ class SupertropicalMatrix:
         self.shape = self.data.shape
 
     def __repr__(self):
-        return f"SupertropicalMatrix(\n{self.data}\n)"
+        """String representation showing matrix in readable 2D array format."""
+        rows = []
+        for i in range(self.shape[0]):
+            row = []
+            for j in range(self.shape[1]):
+                elem = self.data[i, j]
+                # Format: number with 'v' for ghost, plain number for tangible
+                if elem.is_ghost:
+                    row.append(f"{elem.value}v")
+                else:
+                    row.append(f"{elem.value}")
+            rows.append(row)
+        
+        # Calculate column widths for alignment
+        col_widths = []
+        for j in range(self.shape[1]):
+            max_width = max(len(rows[i][j]) for i in range(self.shape[0]))
+            col_widths.append(max_width)
+        
+        # Build the string with proper alignment
+        lines = []
+        for row in rows:
+            formatted_row = [val.rjust(col_widths[j]) for j, val in enumerate(row)]
+            lines.append("  [" + "  ".join(formatted_row) + "]")
+        
+        return "[\n" + "\n".join(lines) + "\n]"
 
     def __getitem__(self, key):
         return self.data[key]

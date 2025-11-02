@@ -2,6 +2,7 @@ sphinx>=4.0.0
 sphinx-rtd-theme
 nbsphinx
 myst-parser
+sphinx-thebe
 ipython
 jupyter
 ipykernel

@@ -22,6 +22,7 @@ extensions = [
     'sphinx.ext.intersphinx',    # Link to other project docs
     'nbsphinx',                  # Jupyter notebook support
     'myst_parser',               # Markdown support
+    'sphinx_thebe',              # Interactive code execution
 ]
 
 # Add any paths that contain templates here
@@ -53,3 +54,20 @@ nbsphinx_allow_errors = False  # Don't allow errors in notebooks
 
 # nbsphinx kernel name
 nbsphinx_kernel_name = 'python3'
+
+# -- Options for sphinx-thebe (interactive code) -----------------------------
+thebe_config = {
+    "repository_url": "https://github.com/TetewHeroez/supertropical-algebra",
+    "repository_branch": "main",
+    "selector": ".highlight-python",  # Enable on Python code blocks
+    "selector_input": "pre",
+    "selector_output": ".output",
+}
+
+# Add thebe button to launch interactive mode
+html_theme_options = {
+    'launch_buttons': {
+        'thebe': True,
+        'binderhub_url': 'https://mybinder.org',
+    },
+}
