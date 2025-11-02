@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 name = "supertropical-algebra"
 version = "0.1.0"
 authors = [
-    {name = "Supertropical Team", email = "your.email@example.com"}
+    {name = "Teosofi Hidayah Agung", email = "teosofihidayahagung@gmail.com"}
 ]
 description = "A Python package for supertropical algebra with tangible and ghost elements"
 readme = "README.md"
