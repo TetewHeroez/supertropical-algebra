@@ -1,58 +1,72 @@
-# Supertropical Algebra# Supertropical Algebra# Supertropical Algebra=======================
+# Supertropical Algebra# Supertropical Algebra
 
-[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)Supertropical Algebra
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TetewHeroez/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb)[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR_USERNAME/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb)[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)=======================
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything.A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TetewHeroez/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/TetewHeroez/supertropical-algebra/main?filepath=docs/source/examples/tutorial.ipynb)
 
-## ✨ Features> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything... image:: https://img.shields.io/badge/python-3.8+-blue.svg
 
-- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion## ✨ FeaturesA comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule. :target: https://www.python.org/downloads/
+
+A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.
+
+
+
+> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything.> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything.A comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule.[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+
+
+## ✨ Features## ✨ Features> **🚀 Try it now!** Click the Binder badge above to run the interactive tutorial in your browser without installing anything... image:: https://img.shields.io/badge/python-3.8+-blue.svg
+
+
+
+- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion## ✨ FeaturesA comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements, matrix operations, and linear system solving using Cramer's rule. :target: https://www.python.org/downloads/
 
 - **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
 
-- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion :alt: Python Version
+- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
 
 - **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
 
-- **🚀 NumPy Integration**: Efficient computations using NumPy arrays- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
+- **🚀 NumPy Integration**: Efficient computations using NumPy arrays- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion :alt: Python Version
 
 - **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
 
-- **✅ Type Safety**: Automatic type coercion and validation- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint## ✨ Features
+- **✅ Type Safety**: Automatic type coercion and validation- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
 
-## 📦 Installation- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
 
-`````bash- **🚀 NumPy Integration**: Efficient computations using NumPy arrays.. image:: https://img.shields.io/badge/license-MIT-green.svg
+
+## 📦 Installation- **🚀 NumPy Integration**: Efficient computations using NumPy arrays- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
+
+
+
+```bash- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
 
 pip install supertropical-algebra
 
-```- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
+```- **✅ Type Safety**: Automatic type coercion and validation- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint## ✨ Features
 
 
 
-Or install from source:- **✅ Type Safety**: Automatic type coercion and validation- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion :target: LICENSE
+Or install from source:## 📦 Installation- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
 
 
 
-```bash## 📦 Installation- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +) :alt: License
+```bash **🚀 NumPy Integration**: Efficient computations using NumPy arrays.. image:: https://img.shields.io/badge/license-MIT-green.svg
 
-git clone https://github.com/TetewHeroez/supertropical-algebra.git
+git clone https://github.com/TetewHeroez/supertropical-algebra.git```bash
 
-cd supertropical-algebra````bash- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint
+cd supertropical-algebrapip install supertropical-algebra
 
-pip install -e .
+pip install -e .```
 
-```pip install supertropical-algebra
+```
 
 
 
-## 🚀 Quick Start```- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = bA comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements,
+## 🚀 Quick Start**📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
 
 
 
@@ -60,7 +74,7 @@ pip install -e .
 
 
 
-### Creating ElementsOr install from source:- **🚀 NumPy Integration**: Efficient computations using NumPy arraysmatrix operations, and linear system solving using Cramer's rule.
+### Creating ElementsOr install from source:- **✅ Type Safety**: Automatic type coercion and validation- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion :target: LICENSE
 
 
 
@@ -68,15 +82,15 @@ pip install -e .
 
 import supertropical as suptrop
 
-```bash- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
+```bash## 📦 Installation- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +) :alt: License
 
 # Tangible elements (regular)
 
-a = suptrop.Element(5)git clone https://github.com/YOUR_USERNAME/supertropical-algebra.git
+a = suptrop.Element(5)git clone https://github.com/TetewHeroez/supertropical-algebra.git
 
 b = suptrop.Element(3)
 
-cd supertropical-algebra- **✅ Type Safety**: Automatic type coercion and validation✨ Features
+cd supertropical-algebra````bash- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint
 
 # Ghost elements (marked with ν)
 
@@ -84,133 +98,332 @@ c = suptrop.Element(5, is_ghost=True)pip install -e .
 
 
 
-print(a)  # Output: 5.0```===========
+print(a)  # Output: 5.0```pip install supertropical-algebra
 
 print(c)  # Output: 5.0ν
 
-`````
+```
 
-**Alternative:** You can also import directly:## 🚀 Quick Start## 📦 Installation
+
+
+**Alternative:** You can also import directly:## 🚀 Quick Start```- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = bA comprehensive Python package for **supertropical algebra**, featuring tangible and ghost elements,
+
+
 
 ```python
 
 from supertropical import Element, Matrix
 
-# Even shorter!**Recommended: Use short alias (like numpy as `np` or tensorflow as `tf`)**- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion
-
-a = Element(5)
+a = Element(5)**Recommended: Use short alias (like numpy as `np` or tensorflow as `tf`)**
 
 ```
 
-### Supertropical Arithmetic### Creating Elements```bash- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
 
-````python
+
+### Supertropical Arithmetic
+
+### Creating ElementsOr install from source:- **🚀 NumPy Integration**: Efficient computations using NumPy arraysmatrix operations, and linear system solving using Cramer's rule.
+
+```python
 
 import supertropical as suptrop
 
-```pythonpip install supertropical-algebra- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint
-
-a = suptrop.Element(5)
-
-b = suptrop.Element(3)import supertropical as suptrop
-
-c = suptrop.Element(5, is_ghost=True)
-
-```- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
-
-# Addition (⊕): max operation with ghost rules
-
-result1 = a + b  # 5 ⊕ 3 = 5 (max)# Tangible elements (regular)
-
-result2 = a + a  # 5 ⊕ 5 = 5ν (becomes ghost)
-
-a = suptrop.Element(5)- **🚀 NumPy Integration**: Efficient computations using NumPy arrays
-
-# Multiplication (⊙): classical addition
-
-result3 = a * b  # 5 ⊙ 3 = 8 (5 + 3)b = suptrop.Element(3)
-
-result4 = a * c  # 5 ⊙ 5ν = 10ν (result is ghost)
-
-Or install from source:- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
-
-# Works with Python numbers
-
-result5 = a + 7  # Automatic conversion# Ghost elements (marked with ν)
-
-result6 = 2 * a  # 2 ⊙ 5 = 7
-
-```c = suptrop.Element(5, is_ghost=True)- **✅ Type Safety**: Automatic type coercion and validation
 
 
+a = suptrop.Element(5)```python
+
+b = suptrop.Element(3)
+
+c = suptrop.Element(5, is_ghost=True)import supertropical as suptrop
+
+
+
+# Addition (⊕): max operation with ghost rules```bash- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
+
+result1 = a + b  # 5 ⊕ 3 = 5 (max)
+
+result2 = a + a  # 5 ⊕ 5 = 5ν (becomes ghost)# Tangible elements (regular)
+
+
+
+# Multiplication (⊙): classical additiona = suptrop.Element(5)git clone https://github.com/YOUR_USERNAME/supertropical-algebra.git
+
+result3 = a * b  # 5 ⊙ 3 = 8 (5 + 3)
+
+result4 = a * c  # 5 ⊙ 5ν = 10ν (result is ghost)b = suptrop.Element(3)
+
+
+
+# Works with Python numberscd supertropical-algebra- **✅ Type Safety**: Automatic type coercion and validation✨ Features
+
+result5 = a + 7  # Automatic conversion
+
+result6 = 2 * a  # 2 ⊙ 5 = 7# Ghost elements (marked with ν)
+
+```
+
+c = suptrop.Element(5, is_ghost=True)pip install -e .
 
 ### Matrix Operations
 
 
 
-```pythonprint(a)  # Output: 5.0```bash
+```python
 
-import supertropical as suptrop
-
-print(c)  # Output: 5.0ν
-
-# Create matrices
-
-A = suptrop.Matrix([[2, 1], ```git clone https://github.com/YOUR_USERNAME/supertropical-algebra.git📦 Installation
-
-                    [1, 3]])
+import supertropical as suptropprint(a)  # Output: 5.0```===========
 
 
 
-B = suptrop.Matrix([[5, 4],
+# Create matricesprint(c)  # Output: 5.0ν
 
-                    [2, 1]])**Alternative:** You can also import directly:cd supertropical-algebra===============
+A = suptrop.Matrix([[2, 1], 
+
+                    [1, 3]])`````
 
 
 
-# Matrix multiplication (supertropical)
+B = suptrop.Matrix([[5, 4], **Alternative:** You can also import directly:## 🚀 Quick Start## 📦 Installation
 
-C = A @ B
-
-```pythonpip install -e .
-
-# Permanent (supertropical determinant)
-
-perm = A.permanent()from supertropical import Element, Matrix
-
-print(f"Permanent: {perm}")
-
-# Even shorter!```.. code-block:: bash
-
-# Adjoint matrix
-
-adj = A.adjoint()a = Element(5)
-
-````
-
-`````
-
-### Solving Linear Systems
-
-### Supertropical Arithmetic## 🚀 Quick Start pip install supertropical-algebra
+                    [2, 1]])
 
 ```python
 
+# Matrix multiplication (supertropical)
+
+C = A @ Bfrom supertropical import Element, Matrix
+
+
+
+# Permanent (supertropical determinant)# Even shorter!**Recommended: Use short alias (like numpy as `np` or tensorflow as `tf`)**- **🎯 Tangible & Ghost Elements**: Full support for both element types with automatic conversion
+
+perm = A.permanent()
+
+print(f"Permanent: {perm}")a = Element(5)
+
+
+
+# Adjoint matrix```
+
+adj = A.adjoint()
+
+```### Supertropical Arithmetic### Creating Elements```bash- **🧮 Supertropical Operations**: Addition (⊕ as max) and multiplication (⊙ as classical +)
+
+
+
+### Solving Linear Systems````python
+
+
+
+```pythonimport supertropical as suptrop
+
+import supertropical as suptrop
+
+```pythonpip install supertropical-algebra- **📐 Matrix Operations**: Matrix multiplication, permanent (supertropical determinant), adjoint
+
+# Define system: Ax = b
+
+A = suptrop.Matrix([[2, 1], a = suptrop.Element(5)
+
+                    [1, 3]])
+
+b = suptrop.Element(3)import supertropical as suptrop
+
+b = suptrop.Matrix([[5], 
+
+                    [4]])c = suptrop.Element(5, is_ghost=True)
+
+
+
+# Solve using Cramer's rule```- **🔧 Linear System Solver**: Cramer's rule implementation for solving Ax = b
+
+x = A.solve(b)
+
+# Addition (⊕): max operation with ghost rules
+
+print(f"Solution:\n{x}")
+
+```result1 = a + b  # 5 ⊕ 3 = 5 (max)# Tangible elements (regular)
+
+
+
+## 📖 Documentationresult2 = a + a  # 5 ⊕ 5 = 5ν (becomes ghost)
+
+
+
+Full documentation is available at: **[GitHub Pages](https://tetewhereoez.github.io/supertropical-algebra)**a = suptrop.Element(5)- **🚀 NumPy Integration**: Efficient computations using NumPy arrays
+
+
+
+- **[Theory Guide](https://tetewhereoez.github.io/supertropical-algebra/theory.html)**: Mathematical background on supertropical algebra# Multiplication (⊙): classical addition
+
+- **[Interactive Tutorial](https://tetewhereoez.github.io/supertropical-algebra/examples/tutorial.html)**: Jupyter notebook with executable examples
+
+- **[API Reference](https://tetewhereoez.github.io/supertropical-algebra/api/index.html)**: Complete API documentationresult3 = a * b  # 5 ⊙ 3 = 8 (5 + 3)b = suptrop.Element(3)
+
+
+
+## 🧪 Running Testsresult4 = a * c  # 5 ⊙ 5ν = 10ν (result is ghost)
+
+
+
+```bashOr install from source:- **📚 Comprehensive Documentation**: Full API reference, theory guide, and interactive tutorials
+
+# Install dev dependencies
+
+pip install -e ".[dev]"# Works with Python numbers
+
+
+
+# Run testsresult5 = a + 7  # Automatic conversion# Ghost elements (marked with ν)
+
+pytest
+
+result6 = 2 * a  # 2 ⊙ 5 = 7
+
+# Run with coverage
+
+pytest --cov=supertropical```c = suptrop.Element(5, is_ghost=True)- **✅ Type Safety**: Automatic type coercion and validation
+
+```
+
+
+
+## 📚 Building Documentation Locally
+
+### Matrix Operations
+
+```bash
+
+# Install docs dependencies
+
+pip install -e ".[docs]"
+
+```pythonprint(a)  # Output: 5.0```bash
+
+# Build HTML docs
+
+cd docsimport supertropical as suptrop
+
+sphinx-build -b html source build
+
+print(c)  # Output: 5.0ν
+
+# Or use make (on Unix/Mac/Windows with make installed)
+
+cd docs# Create matrices
+
+make html
+
+```A = suptrop.Matrix([[2, 1], ```git clone https://github.com/YOUR_USERNAME/supertropical-algebra.git📦 Installation
+
+
+
+The documentation will be in `docs/build/html/index.html`.                    [1, 3]])
+
+
+
+## 🎓 Mathematical Background
+
+
+
+Supertropical algebra extends tropical algebra with ghost elements:B = suptrop.Matrix([[5, 4],
+
+
+
+**Operations:**                    [2, 1]])**Alternative:** You can also import directly:cd supertropical-algebra===============
+
+- **Addition (⊕)**: `a ⊕ b = max(a, b)` with special ghost rules
+
+- **Multiplication (⊙)**: `a ⊙ b = a + b` (classical addition)
+
+
+
+**Elements:**# Matrix multiplication (supertropical)
+
+- **Tangible**: Regular elements (e.g., `5.0`)
+
+- **Ghost**: Elements marked with ν (e.g., `5.0ν`)C = A @ B
+
+- **Zero**: `-∞` (additive identity)
+
+- **One**: `0` (multiplicative identity)```pythonpip install -e .
+
+
+
+**Key Properties:**# Permanent (supertropical determinant)
+
+- Matrix permanent replaces determinant
+
+- Cramer's rule works for nonsingular matrices (permanent is tangible)perm = A.permanent()from supertropical import Element, Matrix
+
+- Applications in optimization, algebraic geometry, and phylogenetics
+
+print(f"Permanent: {perm}")
+
+## 🤝 Contributing
+
+# Even shorter!```.. code-block:: bash
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+# Adjoint matrix
+
+1. Fork the repository
+
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)adj = A.adjoint()a = Element(5)
+
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+
+4. Push to the branch (`git push origin feature/amazing-feature`)````
+
+5. Open a Pull Request
+
+`````
+
+## 📄 License
+
+### Solving Linear Systems
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Supertropical Arithmetic## 🚀 Quick Start pip install supertropical-algebra
+
+## 👥 Authors
+
+```python
+
+- **Supertropical Team**
+
 import supertropical as suptrop````python
 
-
-
-# Define system: Ax = bimport supertropical as suptrop
-
-A = suptrop.Matrix([[2, 1],
-
-                    [1, 3]])**Recommended: Use short alias (like numpy as np or tensorflow as tf)**Or install from source:
+## 🙏 Acknowledgments
 
 
 
-b = suptrop.Matrix([[5], a = suptrop.Element(5)
+- Based on research by Izhakian, Z., & Rowen, L. on supertropical algebra
 
-                    [4]])
+- Inspired by tropical algebra and max-plus algebra implementations# Define system: Ax = bimport supertropical as suptrop
+
+
+
+## 📞 ContactA = suptrop.Matrix([[2, 1],
+
+
+
+- **GitHub**: [https://github.com/TetewHeroez/supertropical-algebra](https://github.com/TetewHeroez/supertropical-algebra)                    [1, 3]])**Recommended: Use short alias (like numpy as np or tensorflow as tf)**Or install from source:
+
+- **Issues**: [https://github.com/TetewHeroez/supertropical-algebra/issues](https://github.com/TetewHeroez/supertropical-algebra/issues)
+
+- **Documentation**: [https://tetewhereoez.github.io/supertropical-algebra](https://tetewhereoez.github.io/supertropical-algebra)
+
+
+
+---b = suptrop.Matrix([[5], a = suptrop.Element(5)
+
+
+
+**Made with ❤️ for mathematical computing**                    [4]])
+
 
 b = suptrop.Element(3)
 
