@@ -42,27 +42,43 @@ Or install from source:
 🚀 Quick Start
 ==============
 
+**Recommended: Use short alias like numpy (np) or tensorflow (tf)**
+
 Creating Elements
 -----------------
 
 .. code-block:: python
 
-   from supertropical import SupertropicalElement
+   import supertropical as suptrop
    
    # Tangible elements (regular)
-   a = SupertropicalElement(5)
-   b = SupertropicalElement(3)
+   a = suptrop.Element(5)
+   b = suptrop.Element(3)
    
    # Ghost elements (marked with ν)
-   c = SupertropicalElement(5, is_ghost=True)
+   c = suptrop.Element(5, is_ghost=True)
    
    print(a)  # Output: 5.0
    print(c)  # Output: 5.0ν
+
+**Alternative:** You can also import directly:
+
+.. code-block:: python
+
+   from supertropical import Element, Matrix
+   # Even shorter!
+   a = Element(5)
 
 Supertropical Arithmetic
 -------------------------
 
 .. code-block:: python
+
+   import supertropical as suptrop
+   
+   a = suptrop.Element(5)
+   b = suptrop.Element(3)
+   c = suptrop.Element(5, is_ghost=True)
 
    # Addition (⊕): max operation with ghost rules
    result1 = a + b  # 5 ⊕ 3 = 5 (max)
@@ -81,14 +97,14 @@ Matrix Operations
 
 .. code-block:: python
 
-   from supertropical import SupertropicalMatrix
+   import supertropical as suptrop
    
    # Create matrices
-   A = SupertropicalMatrix([[2, 1], 
-                             [1, 3]])
+   A = suptrop.Matrix([[2, 1], 
+                  [1, 3]])
    
-   B = SupertropicalMatrix([[5, 4], 
-                             [2, 1]])
+   B = suptrop.Matrix([[5, 4], 
+                  [2, 1]])
    
    # Matrix multiplication (supertropical)
    C = A @ B
@@ -105,14 +121,19 @@ Solving Linear Systems
 
 .. code-block:: python
 
-   # Define system: Ax = b
-   A = SupertropicalMatrix([[2, 1], 
-                             [1, 3]])
+   import supertropical as suptrop
    
-   b = SupertropicalMatrix([[5], 
-                             [4]])
+   # Define system: Ax = b
+   A = suptrop.Matrix([[2, 1], 
+                  [1, 3]])
+   
+   b = suptrop.Matrix([[5], 
+                  [4]])
    
    # Solve using Cramer's rule
+   x = A.solve(b)
+   
+   print(f"Solution:\n{x}")   # Solve using Cramer's rule
    x = A.solve(b)
    
    print(f"Solution:\\n{x}")

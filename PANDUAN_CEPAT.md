@@ -7,12 +7,14 @@
 ## 📦 Yang Sudah Dibuat
 
 ### 1. **Implementasi Core** ✅
+
 - `SupertropicalElement`: Elemen tangible & ghost (ditampilkan dengan simbol ν)
 - `SupertropicalMatrix`: Operasi matrix dengan permanent dan adjoint
 - **Linear System Solver**: Crammer's rule untuk sistem Ax = b
 - Semua operasi supertropical (⊕ sebagai max, ⊙ sebagai +)
 
 ### 2. **Dokumentasi Lengkap** ✅
+
 - `README.rst`: Professional package overview
 - `docs/source/theory.rst`: Teori matematika lengkap
 - `docs/source/api/index.rst`: API reference otomatis
@@ -20,11 +22,13 @@
 - Semua dalam **Bahasa Inggris** seperti diminta
 
 ### 3. **Testing** ✅
+
 - `tests/test_element.py`: 40+ test cases untuk elemen
 - `tests/test_matrix.py`: 35+ test cases untuk matrix
 - Total 75+ test cases komprehensif
 
 ### 4. **Setup & Config** ✅
+
 - `pyproject.toml`: Konfigurasi package lengkap
 - `requirements.txt`: Dependencies
 - `.gitignore`: Git ignore
@@ -36,37 +40,46 @@
 ## 🚀 Cara Menggunakan
 
 ### Install Package
+
 ```bash
 cd "d:\Hada Touya\supertropical-algebra"
 pip install -e .
 ```
 
 ### Test Cepat
+
 ```python
-from supertropical import SupertropicalElement, SupertropicalMatrix
+# Import (direkomendasikan - mirip numpy as np)
+import supertropical as suptrop
 
 # Buat elemen
-a = SupertropicalElement(5)          # Tangible: 5.0
-b = SupertropicalElement(3, True)    # Ghost: 3.0ν
+a = suptrop.Element(5)          # Tangible: 5.0
+b = suptrop.Element(3, True)    # Ghost: 3.0ν
 
 # Operasi
 print(a + b)  # Output: 5.0ν (max adalah 5, jadi 5 dengan ghost)
 print(a * b)  # Output: 8.0ν (5 + 3 = 8, ghost karena ada ghost)
 
 # Solve sistem linear Ax = b
-A = SupertropicalMatrix([[2, 1], [1, 3]])
-b = SupertropicalMatrix([[5], [4]])
-x = A.solve(b)  # Pakai Cramer's rule
+A = suptrop.Matrix([[2, 1], [1, 3]])
+b_vec = suptrop.Matrix([[5], [4]])
+x = A.solve(b_vec)  # Pakai Cramer's rule
 print(f"Solution:\n{x}")
+
+# Import alternatif juga bisa:
+# from supertropical import Element, Matrix
+# from supertropical import SupertropicalElement, SupertropicalMatrix
 ```
 
 ### Run Tests
+
 ```bash
 pip install pytest
 pytest
 ```
 
 ### Build Dokumentasi
+
 ```bash
 pip install -e ".[docs]"
 cd docs
@@ -84,6 +97,7 @@ Hasil ada di: `docs/build/html/index.html`
 ### Langkah-langkah:
 
 1. **Buat Repository di GitHub**
+
    - Buka https://github.com
    - Klik "New repository"
    - Nama: `supertropical-algebra`
@@ -91,18 +105,20 @@ Hasil ada di: `docs/build/html/index.html`
    - Jangan centang "Initialize with README" (sudah ada)
 
 2. **Push ke GitHub**
+
    ```bash
    cd "d:\Hada Touya\supertropical-algebra"
-   
+
    # Ganti YOUR_USERNAME dengan username GitHub Anda
    git remote add origin https://github.com/YOUR_USERNAME/supertropical-algebra.git
-   
+
    git branch -M main
    git push -u origin main
    ```
 
 3. **Update Link di File**
    Ganti `YOUR_USERNAME` di file:
+
    - `README.rst` (baris 5, 153, 164, dll)
    - `pyproject.toml` (baris 30-32)
    - `docs/source/examples/tutorial.ipynb` (di akhir)
@@ -116,6 +132,7 @@ Hasil ada di: `docs/build/html/index.html`
 ## 🎯 Fitur Utama
 
 ### SupertropicalElement
+
 - ✅ Tangible & ghost elements
 - ✅ Tampilan dengan simbol ν untuk ghost
 - ✅ Addition (⊕): max dengan aturan ghost
@@ -123,6 +140,7 @@ Hasil ada di: `docs/build/html/index.html`
 - ✅ Otomatis convert Python int/float
 
 ### SupertropicalMatrix
+
 - ✅ Matrix multiplication menggunakan ⊕ dan ⊙
 - ✅ **Permanent** (pengganti determinan)
 - ✅ **Adjoint matrix**
@@ -130,6 +148,7 @@ Hasil ada di: `docs/build/html/index.html`
 - ✅ Support numpy arrays
 
 ### Dokumentasi
+
 - ✅ Tutorial Jupyter notebook (bisa dijalankan di browser)
 - ✅ Teori matematika lengkap dengan LaTeX
 - ✅ API reference otomatis dari docstrings
@@ -140,6 +159,7 @@ Hasil ada di: `docs/build/html/index.html`
 ## 📝 Contoh Penggunaan
 
 ### 1. Operasi Elemen
+
 ```python
 from supertropical import SupertropicalElement
 
@@ -159,6 +179,7 @@ print(a * c)   # 10.0ν (ghost result)
 ```
 
 ### 2. Operasi Matrix
+
 ```python
 from supertropical import SupertropicalMatrix
 
@@ -178,6 +199,7 @@ adj = A.adjoint()
 ```
 
 ### 3. Solve Sistem Linear
+
 ```python
 # System: Ax = b
 A = SupertropicalMatrix([[2, 1], [1, 3]])
@@ -196,11 +218,13 @@ if perm.is_tangible():
 ## 🧪 Testing
 
 ### Run All Tests
+
 ```bash
 pytest
 ```
 
 ### Run dengan Coverage
+
 ```bash
 pytest --cov=supertropical --cov-report=html
 ```

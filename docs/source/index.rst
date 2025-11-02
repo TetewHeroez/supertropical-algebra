@@ -22,15 +22,15 @@ Installation:
 
    pip install supertropical-algebra
 
-Basic usage:
+Basic usage (recommended - like numpy as np):
 
 .. code-block:: python
 
-   from supertropical import SupertropicalElement, SupertropicalMatrix
+   import supertropical as suptrop
    
    # Create elements
-   a = SupertropicalElement(5)          # Tangible: 5.0
-   b = SupertropicalElement(3, True)    # Ghost: 3.0ν
+   a = suptrop.Element(5)          # Tangible: 5.0
+   b = suptrop.Element(3, True)    # Ghost: 3.0ν
    
    # Supertropical addition (max operation)
    c = a + b  # Result: 5.0ν (max is 5, becomes ghost)
@@ -39,9 +39,21 @@ Basic usage:
    d = a * b  # Result: 8.0ν (5 + 3 = 8, is ghost)
    
    # Create and solve linear systems
-   A = SupertropicalMatrix([[2, 1], [1, 3]])
-   b = SupertropicalMatrix([[5], [4]])
+   A = suptrop.Matrix([[2, 1], [1, 3]])
+   b = suptrop.Matrix([[5], [4]])
    x = A.solve(b)  # Solve Ax = b using Cramer's rule
+
+Alternative import styles:
+
+.. code-block:: python
+
+   # Direct import
+   from supertropical import Element, Matrix
+   a = Element(5)
+   
+   # Full names (also works)
+   from supertropical import SupertropicalElement, SupertropicalMatrix
+   a = SupertropicalElement(5)
 
 Features
 --------

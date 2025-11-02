@@ -48,6 +48,7 @@ supertropical-algebra/
 ## 🎯 Core Features Implemented
 
 ### 1. **SupertropicalElement** (`src/supertropical/element.py`)
+
 - ✅ Tangible and ghost elements
 - ✅ Ghost elements displayed with ν symbol
 - ✅ Supertropical addition (⊕): max operation with ghost rules
@@ -57,9 +58,14 @@ supertropical-algebra/
 - ✅ Complete docstrings in English
 
 **Key Operations:**
+
 ```python
-a = SupertropicalElement(5)           # Tangible: 5.0
-b = SupertropicalElement(3, True)     # Ghost: 3.0ν
+# Recommended import (like numpy as np)
+import supertropical as suptrop
+
+# Create elements
+a = suptrop.Element(5)           # Tangible: 5.0
+b = suptrop.Element(3, True)     # Ghost: 3.0ν
 
 # Addition (⊕)
 a + b  # → 5.0 (max)
@@ -67,9 +73,14 @@ a + a  # → 5.0ν (becomes ghost)
 
 # Multiplication (⊙)
 a * b  # → 8.0 (5 + 3)
+
+# Alternative imports:
+# from supertropical import Element, Matrix
+# from supertropical import SupertropicalElement, SupertropicalMatrix
 ```
 
 ### 2. **SupertropicalMatrix** (`src/supertropical/matrix.py`)
+
 - ✅ Matrix creation from lists and numpy arrays
 - ✅ Matrix multiplication (@) using supertropical operations
 - ✅ Scalar multiplication
@@ -80,9 +91,12 @@ a * b  # → 8.0 (5 + 3)
 - ✅ Complete docstrings in English
 
 **Key Operations:**
+
 ```python
-A = SupertropicalMatrix([[2, 1], [1, 3]])
-b = SupertropicalMatrix([[5], [4]])
+import supertropical as suptrop
+
+A = suptrop.Matrix([[2, 1], [1, 3]])
+b = suptrop.Matrix([[5], [4]])
 
 # Matrix multiplication
 C = A @ B
@@ -95,6 +109,7 @@ x = A.solve(b)
 ```
 
 ### 3. **Linear System Solver** (Cramer's Rule)
+
 - ✅ Solves Ax = b for nonsingular matrices
 - ✅ Uses permanent (not determinant)
 - ✅ Calculates adjoint matrix
@@ -108,6 +123,7 @@ x = A.solve(b)
 ## 📚 Documentation (Complete in English)
 
 ### 1. **README.rst**
+
 - Professional package overview
 - Installation instructions
 - Quick start examples
@@ -117,6 +133,7 @@ x = A.solve(b)
 - License information
 
 ### 2. **Theory Guide** (`docs/source/theory.rst`)
+
 - Mathematical background on supertropical algebra
 - Definitions of tangible/ghost elements
 - Operation rules with LaTeX equations
@@ -126,6 +143,7 @@ x = A.solve(b)
 - References to research papers
 
 ### 3. **API Reference** (`docs/source/api/index.rst`)
+
 - Auto-generated from docstrings
 - Complete class documentation
 - Method signatures and descriptions
@@ -133,6 +151,7 @@ x = A.solve(b)
 - Code snippets for common tasks
 
 ### 4. **Interactive Tutorial** (`docs/source/examples/tutorial.ipynb`)
+
 - Jupyter notebook with executable code
 - Part 1: Element operations
 - Part 2: Matrix operations
@@ -145,13 +164,13 @@ x = A.solve(b)
 ## 🧪 Test Suite
 
 ### Comprehensive Tests (`tests/`)
+
 - ✅ **test_element.py**: 200+ lines, 40+ test cases
   - Element creation
   - Addition rules
   - Multiplication rules
   - Comparison operators
   - Mathematical properties (commutativity, associativity, distributivity)
-  
 - ✅ **test_matrix.py**: 250+ lines, 35+ test cases
   - Matrix creation
   - Matrix multiplication
@@ -162,6 +181,7 @@ x = A.solve(b)
   - Error handling
 
 **Run tests:**
+
 ```bash
 pytest
 pytest --cov=supertropical  # With coverage
@@ -172,6 +192,7 @@ pytest --cov=supertropical  # With coverage
 ## 🔧 Configuration Files
 
 ### `pyproject.toml`
+
 - ✅ Package metadata (name, version, authors)
 - ✅ Dependencies: numpy>=1.20.0
 - ✅ Optional dependencies: dev, docs
@@ -179,6 +200,7 @@ pytest --cov=supertropical  # With coverage
 - ✅ Python version requirement (>=3.8)
 
 ### `requirements.txt`
+
 - Core: numpy
 - Dev: pytest, pytest-cov, black, flake8
 - Docs: sphinx, sphinx-rtd-theme, nbsphinx, myst-parser
@@ -188,12 +210,14 @@ pytest --cov=supertropical  # With coverage
 ## 🚀 How to Use
 
 ### 1. **Install Package**
+
 ```bash
 cd "d:\Hada Touya\supertropical-algebra"
 pip install -e .
 ```
 
 ### 2. **Run Tests**
+
 ```bash
 # Install dev dependencies
 pip install -e ".[dev]"
@@ -206,6 +230,7 @@ pytest --cov=supertropical --cov-report=html
 ```
 
 ### 3. **Build Documentation**
+
 ```bash
 # Install docs dependencies
 pip install -e ".[docs]"
@@ -222,6 +247,7 @@ sphinx-build -b html source build
 The documentation will be in `docs/build/html/index.html`.
 
 ### 4. **Run Tutorial Notebook**
+
 ```bash
 # Install jupyter
 pip install jupyter
@@ -237,23 +263,26 @@ jupyter notebook docs/source/examples/tutorial.ipynb
 ### Next Steps:
 
 1. **Create GitHub Repository**
+
    ```bash
    # On GitHub.com, create a new repository named "supertropical-algebra"
    ```
 
 2. **Push to GitHub**
+
    ```bash
    cd "d:\Hada Touya\supertropical-algebra"
-   
+
    # Add remote (replace YOUR_USERNAME)
    git remote add origin https://github.com/YOUR_USERNAME/supertropical-algebra.git
-   
+
    # Push
    git branch -M main
    git push -u origin main
    ```
 
 3. **Enable GitHub Pages** (for documentation)
+
    - Go to repository Settings > Pages
    - Source: GitHub Actions
    - The `.github/workflows/docs.yml` will build docs automatically
@@ -271,16 +300,19 @@ jupyter notebook docs/source/examples/tutorial.ipynb
 ### Supertropical Algebra Operations
 
 **Addition (⊕):**
+
 - a ⊕ b = max(a, b) when a ≠ b
 - a ⊕ a = aν (becomes ghost)
 - a ⊕ aν = aν
 - aν ⊕ bν = max(a, b)ν
 
 **Multiplication (⊙):**
+
 - a ⊙ b = a + b (classical addition)
 - Result is ghost if any operand is ghost
 
 **Special Elements:**
+
 - Zero (additive identity): -∞
 - One (multiplicative identity): 0
 - Ghost marker: ν (nu symbol)
