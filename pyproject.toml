@@ -44,9 +44,9 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/supertropical-algebra"
-Documentation = "https://github.com/YOUR_USERNAME/supertropical-algebra"
-Repository = "https://github.com/YOUR_USERNAME/supertropical-algebra"
+Homepage = "https://github.com/TetewHeroez/supertropical-algebra"
+Documentation = "https://tetewhereoez.github.io/supertropical-algebra"
+Repository = "https://github.com/TetewHeroez/supertropical-algebra"
 
 # Setuptools-specific configuration
 [tool.setuptools.packages.find]
