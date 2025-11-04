@@ -1,319 +1,499 @@
-Supertropical Algebra Theory
-============================
+Supertropical Algebra TheorySupertropical Algebra Theory
 
-This page provides comprehensive mathematical background on supertropical algebra, based on the extended semiring tropical framework.
+========================================================
 
-1. Supertropical Algebra
-------------------------
 
-1.1 Extended Semiring Tropical
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As discussed in max-plus algebra, the tropical algebra structure lacks an inverse element for the addition operation ⊕. This limitation is specifically addressed by introducing the **extended semiring tropical** structure, allowing us to solve systems of linear equations.
+This page provides comprehensive mathematical background on supertropical algebra, based on the extended semiring tropical framework.This page provides comprehensive mathematical background on supertropical algebra, based on the extended semiring tropical framework.
 
-Definition 1.1 (Extended Semiring Tropical)
-""""""""""""""""""""""""""""""""""""""""""""
 
-An **extended semiring tropical** is defined as :math:`(T, \oplus, \otimes)` where :math:`T = \mathbb{R} \cup \{-\infty\} \cup \mathbb{R}^\nu`, where :math:`\mathbb{R}` is the set of all real numbers and :math:`\mathbb{R}^\nu = \{a^\nu \mid a \in \mathbb{R}\}`.
 
-- The **neutral element** for :math:`T` is :math:`\varepsilon \stackrel{\text{def}}{=} -\infty`
-- The **unit element** is :math:`e \stackrel{\text{def}}{=} 0`
+**For interactive code examples**, see the :doc:`Interactive Examples <examples/index>` section.**For code examples and interactive demonstrations**, see the :doc:`Interactive Examples <examples/index>` section.
 
-The set :math:`\mathbb{R}_{-\infty} = \mathbb{R} \cup \{-\infty\}` represents the **ideal** of :math:`T`, called the **ideal ghost**. 
 
-Meanwhile, a function :math:`v : T \to \mathbb{R}_{-\infty}` defined by :math:`v(x) \stackrel{\text{def}}{=} x, \forall x \in \mathbb{R}_{-\infty}` represents **tangible identity**, and :math:`v(a) = a^\nu, \forall a \in \mathbb{R}` where element :math:`a^\nu` is called the **element ghost** or **ghost** of :math:`a`. The function :math:`v` is called the **ghost mapping**.
 
-Definition 1.2 (Extended Semiring Tropical Order)
-""""""""""""""""""""""""""""""""""""""""""""""""""
+1. Supertropical Algebra1. Supertropical Algebra
 
-Given an **extended semiring tropical** :math:`T`, a **partial order** relation :math:`\prec` is defined on :math:`T` as follows:
+------------------------------------------------
 
-For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x \in T`:
 
-1. :math:`-\infty \prec x, \forall x \in T \setminus \{-\infty\}`
-2. For any real numbers :math:`a \prec b`, then :math:`a \prec a^\nu, a \prec b^\nu, a^\nu \prec b`, and :math:`a^\nu \prec b^\nu`
-3. :math:`a \prec a^\nu` for any :math:`a \in \mathbb{R}`
 
-Axiom 1.1 (Extended Semiring Tropical Operations)
-""""""""""""""""""""""""""""""""""""""""""""""""""
+1.1 Extended Semiring Tropical1.1 Extended Semiring Tropical
 
-Given an extended semiring tropical :math:`T`, the operations :math:`\oplus` (max) and :math:`\otimes` (addition) on :math:`T` satisfy the following axioms.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x, y \in T`:
 
-1. :math:`-\infty \oplus x = x \oplus -\infty = x, \forall x \in T`
-2. :math:`x \oplus y = \max_{\prec} \{x, y\}` provided :math:`x \neq y`
-3. :math:`a \oplus a = a^\nu \oplus a^\nu = a \oplus a^\nu = a^\nu \oplus a = a^\nu`
-4. :math:`-\infty \otimes x = x \otimes -\infty = -\infty`
-5. :math:`a \otimes b = a + b` (classical addition)
-6. :math:`a^\nu \otimes b = a \otimes b^\nu = a^\nu \otimes b^\nu = (a + b)^\nu`
 
-**Example 1.1**: Operations in extended semiring tropical :math:`T`:
+As discussed in max-plus algebra, the tropical algebra structure lacks an inverse element for the addition operation ⊕. This limitation is specifically addressed by introducing the **extended semiring tropical** structure, allowing us to solve systems of linear equations.As discussed in max-plus algebra, the tropical algebra structure lacks an inverse element for the addition operation ⊕. This limitation is specifically addressed by introducing the **extended semiring tropical** structure, allowing us to solve systems of linear equations.
 
-1. :math:`-\infty \oplus 4 = 4 \oplus -\infty = 4`
-2. :math:`-2 \oplus 7 = \max_{\prec} \{-2, 7\} = 7`
-3. :math:`8 \oplus 8 = 8^\nu \oplus 8^\nu = 8 \oplus 8^\nu = 8^\nu \oplus 8 = 8^\nu`
-4. :math:`-\infty \otimes 3 = 3 \otimes -\infty = -\infty`
-5. :math:`6 \otimes 9 = 6 + 9 = 15`
-6. :math:`7^\nu \otimes 8 = 7 \otimes 8^\nu = 7^\nu \otimes 8^\nu = (7 + 8)^\nu = 15^\nu`
 
-1.2 Python Implementation
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this package, supertropical elements are implemented as the ``SupertropicalElement`` class:
+Definition 1.1 (Extended Semiring Tropical)Definition 1.1 (Extended Semiring Tropical)
 
-.. code-block:: python
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-   import supertropical as suptrop
 
-   # Create tangible elements
-   a = suptrop.Element(5)
-   b = suptrop.Element(3)
 
-   # Create ghost elements (marked with ν)
-   c = suptrop.Element(5, is_ghost=True)
-   d = suptrop.Element(2, is_ghost=True)
+An **extended semiring tropical** is defined as :math:`(T, \oplus, \otimes)` where :math:`T = \mathbb{R} \cup \{-\infty\} \cup \mathbb{R}^\nu`, where :math:`\mathbb{R}` is the set of all real numbers and :math:`\mathbb{R}^\nu = \{a^\nu \mid a \in \mathbb{R}\}`.An **extended semiring tropical** is defined as :math:`(T, \oplus, \otimes)` where :math:`T = \mathbb{R} \cup \{-\infty\} \cup \mathbb{R}^\nu`, where :math:`\mathbb{R}` is the set of all real numbers and :math:`\mathbb{R}^\nu = \{a^\nu \mid a \in \mathbb{R}\}`.
 
-   # Display elements
-   print(f"Tangible a: {a}")      # 5.0
-   print(f"Tangible b: {b}")      # 3.0
-   print(f"Ghost c: {c}")          # 5.0ν
-   print(f"Ghost d: {d}")          # 2.0ν
 
-**Supertropical Addition (⊕)**:
 
-.. code-block:: python
+- The **neutral element** for :math:`T` is :math:`\varepsilon \stackrel{\text{def}}{=} -\infty`- The **neutral element** for :math:`T` is :math:`\varepsilon \stackrel{\text{def}}{=} -\infty`
 
-   # Rule 2: Different values → max
-   result1 = a + b  # 5 + 3 = max(5, 3) = 5
-   print(f"5 ⊕ 3 = {result1}")
-   print(f"Is ghost? {result1.is_ghost}")  # False
+- The **unit element** is :math:`e \stackrel{\text{def}}{=} 0`- The **unit element** is :math:`e \stackrel{\text{def}}{=} 0`
 
-   # Rule 3: Same values → becomes ghost
-   e = suptrop.Element(5)
-   result2 = a + e  # 5 + 5 = 5ν
-   print(f"5 ⊕ 5 = {result2}")
-   print(f"Is ghost? {result2.is_ghost}")  # True
 
-   # Ghost addition
-   f = suptrop.Element(7, is_ghost=True)
-   result3 = c + f  # 5ν + 7ν = 7ν
-   print(f"5ν ⊕ 7ν = {result3}")
 
-**Supertropical Multiplication (⊗)**:
+The set :math:`\mathbb{R}_{-\infty} = \mathbb{R} \cup \{-\infty\}` represents the **ideal** of :math:`T`, called the **ideal ghost**. The set :math:`\mathbb{R}_{-\infty} = \mathbb{R} \cup \{-\infty\}` represents the **ideal** of :math:`T`, called the **ideal ghost**. 
 
-.. code-block:: python
 
-   # Tangible × Tangible
-   result4 = a * b  # 5 ⊗ 3 = 5 + 3 = 8
-   print(f"5 ⊗ 3 = {result4}")
 
-   # Tangible × Ghost → Ghost result
-   result5 = a * c  # 5 ⊗ 5ν = (5 + 5)ν = 10ν
-   print(f"5 ⊗ 5ν = {result5}")
-   print(f"Is ghost? {result5.is_ghost}")  # True
+Meanwhile, a function :math:`v : T \to \mathbb{R}_{-\infty}` defined by :math:`v(x) \stackrel{\text{def}}{=} x, \forall x \in \mathbb{R}_{-\infty}` represents **tangible identity**, and :math:`v(a) = a^\nu, \forall a \in \mathbb{R}` where element :math:`a^\nu` is called the **element ghost** or **ghost** of :math:`a`. The function :math:`v` is called the **ghost mapping**.Meanwhile, a function :math:`v : T \to \mathbb{R}_{-\infty}` defined by :math:`v(x) \stackrel{\text{def}}{=} x, \forall x \in \mathbb{R}_{-\infty}` represents **tangible identity**, and :math:`v(a) = a^\nu, \forall a \in \mathbb{R}` where element :math:`a^\nu` is called the **element ghost** or **ghost** of :math:`a`. The function :math:`v` is called the **ghost mapping**.
 
-**Element Power**:
 
-.. code-block:: python
 
-   # Positive exponent: a^k = k * a
-   print(f"5^2 = {a ** 2}")      # 10.0
-   print(f"5^3 = {a ** 3}")      # 15.0
+Definition 1.2 (Extended Semiring Tropical Order)Definition 1.2 (Extended Semiring Tropical Order)
 
-   # Negative exponent (max-plus subtraction)
-   print(f"8^(-2) = {suptrop.Element(8) ** -2}")  # -16.0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-   # Ghost element power
-   print(f"(5ν)^2 = {c ** 2}")   # 10.0ν
 
-2. Ghost Surpasses Relation
-----------------------------
 
-2.1 Definition
-^^^^^^^^^^^^^^
+Given an **extended semiring tropical** :math:`T`, a **partial order** relation :math:`\prec` is defined on :math:`T` as follows:Given an **extended semiring tropical** :math:`T`, a **partial order** relation :math:`\prec` is defined on :math:`T` as follows:
 
-In supertropical semiring :math:`R`, for any :math:`a \in R`, then :math:`a \oplus a = -\infty` only holds when :math:`a = -\infty`. However, for any :math:`a \in T` then :math:`a \oplus a = a^\nu` and for any :math:`x \in G` then :math:`x \oplus x = x`. Therefore, a **ghost surpasses** relation in :math:`R` will be introduced as follows.
 
-Definition 2.1 (Ghost Surpasses Relation)
-""""""""""""""""""""""""""""""""""""""""""
 
-Given a supertropical semiring :math:`R`, a relation :math:`\vDash` is called a **ghost surpasses** relation in :math:`R` defined as:
+For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x \in T`:For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x \in T`:
 
-.. math::
 
-   x \vDash y \quad \text{if} \quad x = y \oplus z \quad \text{for some} \quad z \in \mathcal{G}_0
 
-where :math:`\mathcal{G}_0` is the set of ghost elements.
+1. :math:`-\infty \prec x, \forall x \in T \setminus \{-\infty\}`1. :math:`-\infty \prec x, \forall x \in T \setminus \{-\infty\}`
 
-**Example 2.1**: Ghost surpasses relation in supertropical semiring :math:`R`:
+2. For any real numbers :math:`a \prec b`, then :math:`a \prec a^\nu, a \prec b^\nu, a^\nu \prec b`, and :math:`a^\nu \prec b^\nu`2. For any real numbers :math:`a \prec b`, then :math:`a \prec a^\nu, a \prec b^\nu, a^\nu \prec b`, and :math:`a^\nu \prec b^\nu`
 
-1. For :math:`9, 10^\nu \in R`, we have :math:`10^\nu \vDash 9` because :math:`10^\nu = 9 \oplus 10^\nu`. Here, :math:`z = 10^\nu` is a value in :math:`\mathcal{G}_0` satisfying :math:`10^\nu = 9 \oplus 10^\nu`.
+3. :math:`a \prec a^\nu` for any :math:`a \in \mathbb{R}`3. :math:`a \prec a^\nu` for any :math:`a \in \mathbb{R}`
 
-2. For :math:`-5 \in R`, we have :math:`-5 \vDash -5` because :math:`-5 = -5 \oplus \varepsilon`. Here, :math:`z = \varepsilon \in \mathcal{G}_0` with :math:`z \neq \varepsilon` satisfying :math:`-5 = -5 \oplus z` is :math:`z \prec -5`. For example, :math:`z = -6^\nu` and :math:`z = -7.5^\nu`. Notice that there are many values of :math:`z \in \mathcal{G}_0` satisfying :math:`-5 = -5 \oplus z` other than :math:`z \prec -5`.
 
-3. Meanwhile, for :math:`7, 6 \in R`, we have :math:`7 \nvDash 6` because the value of :math:`z` satisfying :math:`7 = 6 \oplus z` is only :math:`z = 7 \notin \mathcal{G}_0`.
 
-2.2 Python Implementation
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Axiom 1.1 (Extended Semiring Tropical Operations)Axiom 1.1 (Extended Semiring Tropical Operations)
 
-The ``ghost_surpasses()`` method checks if one element ghost-surpasses another:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. code-block:: python
 
-   import supertropical as suptrop
 
-   # Example 1: 10ν ⊨ 9
-   x = suptrop.Element(10, is_ghost=True)  # 10ν
-   y = suptrop.Element(9)                   # 9
-   print(f"{x} ⊨ {y}: {x.ghost_surpasses(y)}")  # True
+Given an extended semiring tropical :math:`T`, the operations :math:`\oplus` (max) and :math:`\otimes` (addition) on :math:`T` satisfy the following axioms.Given an extended semiring tropical :math:`T`, the operations :math:`\oplus` (max) and :math:`\otimes` (addition) on :math:`T` satisfy the following axioms.
 
-   # Example 2: -5 ⊨ -5
-   a = suptrop.Element(-5)
-   print(f"{a} ⊨ {a}: {a.ghost_surpasses(a)}")  # False (same tangible)
-   
-   # But -5ν ⊨ -5
-   a_ghost = suptrop.Element(-5, is_ghost=True)
-   print(f"{a_ghost} ⊨ {a}: {a_ghost.ghost_surpasses(a)}")  # True
 
-   # Example 3: 7 ⊭ 6
-   x = suptrop.Element(7)
-   y = suptrop.Element(6)
-   print(f"{x} ⊨ {y}: {x.ghost_surpasses(y)}")  # False
 
-3. Supertropical Matrices
---------------------------
+For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x, y \in T`:For any :math:`a, b \in \mathbb{R}`, :math:`a^\nu, b^\nu \in \mathbb{R}^\nu` and :math:`x, y \in T`:
 
-3.1 Matrix Operations
+
+
+1. :math:`-\infty \oplus x = x \oplus -\infty = x, \forall x \in T`1. :math:`-\infty \oplus x = x \oplus -\infty = x, \forall x \in T`
+
+2. :math:`x \oplus y = \max_{\prec} \{x, y\}` provided :math:`x \neq y`2. :math:`x \oplus y = \max_{\prec} \{x, y\}` provided :math:`x \neq y`
+
+3. :math:`a \oplus a = a^\nu \oplus a^\nu = a \oplus a^\nu = a^\nu \oplus a = a^\nu`3. :math:`a \oplus a = a^\nu \oplus a^\nu = a \oplus a^\nu = a^\nu \oplus a = a^\nu`
+
+4. :math:`-\infty \otimes x = x \otimes -\infty = -\infty`4. :math:`-\infty \otimes x = x \otimes -\infty = -\infty`
+
+5. :math:`a \otimes b = a + b` (classical addition)5. :math:`a \otimes b = a + b` (classical addition)
+
+6. :math:`a^\nu \otimes b = a \otimes b^\nu = a^\nu \otimes b^\nu = (a + b)^\nu`6. :math:`a^\nu \otimes b = a \otimes b^\nu = a^\nu \otimes b^\nu = (a + b)^\nu`
+
+
+
+**Example 1.1**: Operations in extended semiring tropical :math:`T`:**Example 1.1**: Operations in extended semiring tropical :math:`T`:
+
+
+
+1. :math:`-\infty \oplus 4 = 4 \oplus -\infty = 4`1. :math:`-\infty \oplus 4 = 4 \oplus -\infty = 4`
+
+2. :math:`-2 \oplus 7 = \max_{\prec} \{-2, 7\} = 7`2. :math:`-2 \oplus 7 = \max_{\prec} \{-2, 7\} = 7`
+
+3. :math:`8 \oplus 8 = 8^\nu \oplus 8^\nu = 8 \oplus 8^\nu = 8^\nu \oplus 8 = 8^\nu`3. :math:`8 \oplus 8 = 8^\nu \oplus 8^\nu = 8 \oplus 8^\nu = 8^\nu \oplus 8 = 8^\nu`
+
+4. :math:`-\infty \otimes 3 = 3 \otimes -\infty = -\infty`4. :math:`-\infty \otimes 3 = 3 \otimes -\infty = -\infty`
+
+5. :math:`6 \otimes 9 = 6 + 9 = 15`5. :math:`6 \otimes 9 = 6 + 9 = 15`
+
+6. :math:`7^\nu \otimes 8 = 7 \otimes 8^\nu = 7^\nu \otimes 8^\nu = (7 + 8)^\nu = 15^\nu`6. :math:`7^\nu \otimes 8 = 7 \otimes 8^\nu = 7^\nu \otimes 8^\nu = (7 + 8)^\nu = 15^\nu`
+
+
+
+2. Ghost Surpasses Relation2. Ghost Surpasses Relation
+
+--------------------------------------------------------
+
+
+
+2.1 Definition2.1 Definition
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+In supertropical semiring :math:`R`, for any :math:`a \in R`, then :math:`a \oplus a = -\infty` only holds when :math:`a = -\infty`. However, for any :math:`a \in T` then :math:`a \oplus a = a^\nu` and for any :math:`x \in G` then :math:`x \oplus x = x`. Therefore, a **ghost surpasses** relation in :math:`R` will be introduced as follows.In supertropical semiring :math:`R`, for any :math:`a \in R`, then :math:`a \oplus a = -\infty` only holds when :math:`a = -\infty`. However, for any :math:`a \in T` then :math:`a \oplus a = a^\nu` and for any :math:`x \in G` then :math:`x \oplus x = x`. Therefore, a **ghost surpasses** relation in :math:`R` will be introduced as follows.
+
+
+
+Definition 2.1 (Ghost Surpasses Relation)Definition 2.1 (Ghost Surpasses Relation)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+Given a supertropical semiring :math:`R`, a relation :math:`\vDash` is called a **ghost surpasses** relation in :math:`R` defined as:Given a supertropical semiring :math:`R`, a relation :math:`\vDash` is called a **ghost surpasses** relation in :math:`R` defined as:
+
+
+
+.. math::.. math::
+
+
+
+   x \vDash y \quad \text{if} \quad x = y \oplus z \quad \text{for some} \quad z \in \mathcal{G}_0   x \vDash y \quad \text{if} \quad x = y \oplus z \quad \text{for some} \quad z \in \mathcal{G}_0
+
+
+
+where :math:`\mathcal{G}_0` is the set of ghost elements.where :math:`\mathcal{G}_0` is the set of ghost elements.
+
+
+
+**Example 2.1**: Ghost surpasses relation in supertropical semiring :math:`R`:**Example 2.1**: Ghost surpasses relation in supertropical semiring :math:`R`:
+
+
+
+1. For :math:`9, 10^\nu \in R`, we have :math:`10^\nu \vDash 9` because :math:`10^\nu = 9 \oplus 10^\nu`. Here, :math:`z = 10^\nu` is a value in :math:`\mathcal{G}_0` satisfying :math:`10^\nu = 9 \oplus 10^\nu`.1. For :math:`9, 10^\nu \in R`, we have :math:`10^\nu \vDash 9` because :math:`10^\nu = 9 \oplus 10^\nu`. Here, :math:`z = 10^\nu` is a value in :math:`\mathcal{G}_0` satisfying :math:`10^\nu = 9 \oplus 10^\nu`.
+
+
+
+2. For :math:`-5 \in R`, we have :math:`-5^\nu \vDash -5` because :math:`-5^\nu = -5 \oplus z` for some ghost :math:`z \prec -5`. For example, :math:`z = -6^\nu` and :math:`z = -7.5^\nu`. Notice that there are many values of :math:`z \in \mathcal{G}_0` satisfying :math:`-5^\nu = -5 \oplus z`.2. For :math:`-5 \in R`, we have :math:`-5 \vDash -5` because :math:`-5 = -5 \oplus \varepsilon`. Here, :math:`z = \varepsilon \in \mathcal{G}_0` with :math:`z \neq \varepsilon` satisfying :math:`-5 = -5 \oplus z` is :math:`z \prec -5`. For example, :math:`z = -6^\nu` and :math:`z = -7.5^\nu`. Notice that there are many values of :math:`z \in \mathcal{G}_0` satisfying :math:`-5 = -5 \oplus z` other than :math:`z \prec -5`.
+
+
+
+3. Meanwhile, for :math:`7, 6 \in R`, we have :math:`7 \nvDash 6` because the value of :math:`z` satisfying :math:`7 = 6 \oplus z` is only :math:`z = 7 \notin \mathcal{G}_0`.3. Meanwhile, for :math:`7, 6 \in R`, we have :math:`7 \nvDash 6` because the value of :math:`z` satisfying :math:`7 = 6 \oplus z` is only :math:`z = 7 \notin \mathcal{G}_0`.
+
+
+
+3. Supertropical Matrices2.2 Python Implementation
+
+--------------------------^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+3.1 Matrix OperationsThe ``ghost_surpasses()`` method checks if one element ghost-surpasses another:
+
 ^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
 
 The set of all :math:`m \times n` matrices over supertropical semiring is denoted as :math:`M_{m \times n}(R)`, where matrix elements are members of :math:`R`. When the dimension of a matrix is square, denoted as :math:`M_n(R)`, the binary operations ⊕ and ⊗ in :math:`R` can be extended to matrix operations in :math:`M_n(R)`. Furthermore, the ghost surpasses relation in :math:`R` can also be extended to matrices in :math:`M_n(R)`.
 
+   import supertropical as suptrop
+
 If :math:`A \vDash B` then :math:`a_{i,j} \vDash b_{i,j}` for any :math:`i` and :math:`j` in :math:`\underline{n}`.
 
-**Matrix Addition**
+   # Example 1: 10ν ⊨ 9
 
-For matrices :math:`A, B \in M_{m \times n}(R)`, the addition :math:`A \oplus B` is defined as:
+**Matrix Addition**   x = suptrop.Element(10, is_ghost=True)  # 10ν
 
-.. math::
+   y = suptrop.Element(9)                   # 9
 
-   [A \oplus B]_{i,j} = a_{i,j} \oplus b_{i,j}
+For matrices :math:`A, B \in M_{m \times n}(R)`, the addition :math:`A \oplus B` is defined as:   print(f"{x} ⊨ {y}: {x.ghost_surpasses(y)}")  # True
 
-for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.
 
-**Matrix Multiplication**
 
-For matrix :math:`A \in M_{m \times p}(R)` and :math:`B \in M_{p \times n}(R)`, the multiplication :math:`A \otimes B` is defined as:
+.. math::   # Example 2: -5 ⊨ -5
 
-.. math::
+   a = suptrop.Element(-5)
+
+   [A \oplus B]_{i,j} = a_{i,j} \oplus b_{i,j}   print(f"{a} ⊨ {a}: {a.ghost_surpasses(a)}")  # False (same tangible)
+
+   
+
+for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.   # But -5ν ⊨ -5
+
+   a_ghost = suptrop.Element(-5, is_ghost=True)
+
+**Matrix Multiplication**   print(f"{a_ghost} ⊨ {a}: {a_ghost.ghost_surpasses(a)}")  # True
+
+
+
+For matrix :math:`A \in M_{m \times p}(R)` and :math:`B \in M_{p \times n}(R)`, the multiplication :math:`A \otimes B` is defined as:   # Example 3: 7 ⊭ 6
+
+   x = suptrop.Element(7)
+
+.. math::   y = suptrop.Element(6)
+
+   print(f"{x} ⊨ {y}: {x.ghost_surpasses(y)}")  # False
 
    [A \otimes B]_{i,j} = \bigoplus_{k=1}^{p} a_{i,k} \otimes b_{k,j}
 
-for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.
+3. Supertropical Matrices
 
-3.2 Python Implementation
-^^^^^^^^^^^^^^^^^^^^^^^^^
+for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.--------------------------
 
-**Creating Matrices**:
 
-.. code-block:: python
 
-   import supertropical as suptrop
+3.2 Advanced Matrix Operations3.1 Matrix Operations
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Matrix Transpose**The set of all :math:`m \times n` matrices over supertropical semiring is denoted as :math:`M_{m \times n}(R)`, where matrix elements are members of :math:`R`. When the dimension of a matrix is square, denoted as :math:`M_n(R)`, the binary operations ⊕ and ⊗ in :math:`R` can be extended to matrix operations in :math:`M_n(R)`. Furthermore, the ghost surpasses relation in :math:`R` can also be extended to matrices in :math:`M_n(R)`.
+
+
+
+For matrix :math:`A`, the transpose :math:`A^T` is defined as:If :math:`A \vDash B` then :math:`a_{i,j} \vDash b_{i,j}` for any :math:`i` and :math:`j` in :math:`\underline{n}`.
+
+
+
+.. math::**Matrix Addition**
+
+
+
+   [A^T]_{i,j} = A_{j,i}For matrices :math:`A, B \in M_{m \times n}(R)`, the addition :math:`A \oplus B` is defined as:
+
+
+
+**Matrix Power**.. math::
+
+
+
+For matrix :math:`A` and positive integer :math:`k`:   [A \oplus B]_{i,j} = a_{i,j} \oplus b_{i,j}
+
+
+
+.. math::for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.
+
+
+
+   A^k = \underbrace{A \otimes A \otimes \cdots \otimes A}_{k \text{ times}}**Matrix Multiplication**
+
+
+
+**Identity Matrix**For matrix :math:`A \in M_{m \times p}(R)` and :math:`B \in M_{p \times n}(R)`, the multiplication :math:`A \otimes B` is defined as:
+
+
+
+The identity matrix :math:`I_n` is defined as:.. math::
+
+
+
+.. math::   [A \otimes B]_{i,j} = \bigoplus_{k=1}^{p} a_{i,k} \otimes b_{k,j}
+
+
+
+   [I]_{i,j} = \begin{cases} for :math:`i \in \underline{m}` and :math:`j \in \underline{n}`.
+
+   0 & \text{if } i = j \\ 
+
+   -\infty^\nu & \text{if } i \neq j 3.2 Python Implementation
+
+   \end{cases}^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+**Pseudo-Zero Matrix****Creating Matrices**:
+
+
+
+The pseudo-zero matrix :math:`Z_G` has all entries equal to :math:`-\infty^\nu` (ghost)... code-block:: python
+
+
+
+3.3 Permanent (Supertropical Determinant)   import supertropical as suptrop
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    # Create a 2×2 matrix
-   A = suptrop.Matrix([[2, 1], 
+
+The **permanent** of matrix :math:`A` is the supertropical analog of determinant:   A = suptrop.Matrix([[2, 1], 
+
                        [1, 3]])
-   print("Matrix A:")
+
+.. math::   print("Matrix A:")
+
    print(A)
 
+   \text{per}(A) = \bigoplus_{\sigma \in S_n} \bigotimes_{i=1}^{n} a_{i,\sigma(i)}
+
    # Create matrix with ghost elements
-   ghost_elem = suptrop.Element(4, is_ghost=True)
+
+where :math:`S_n` is the set of all permutations of :math:`\{1, 2, \ldots, n\}`.   ghost_elem = suptrop.Element(4, is_ghost=True)
+
    B = suptrop.Matrix([[5, ghost_elem], 
-                       [2, 1]])
+
+**Properties**:                       [2, 1]])
+
    print("\nMatrix B (with ghost):")
-   print(B)
+
+- If :math:`\text{per}(A)` is **tangible** → matrix is **nonsingular**   print(B)
+
+- If :math:`\text{per}(A)` is **ghost** → matrix is **singular**
 
 **Matrix Addition**:
 
-.. code-block:: python
+3.4 Pseudo-Inverse
 
-   # Element-wise max operation
+^^^^^^^^^^^^^^^^^^.. code-block:: python
+
+
+
+The **pseudo-inverse** :math:`A^\nabla` of matrix :math:`A` is defined as:   # Element-wise max operation
+
    C = A + B
-   print("A ⊕ B:")
+
+.. math::   print("A ⊕ B:")
+
    print(C)
+
+   A^\nabla = (\text{per}(A))^{-1} \otimes \text{adj}(A)
 
 **Matrix Multiplication**:
 
+where :math:`a^{-1} = -a` in max-plus algebra (inverse element).
+
 .. code-block:: python
+
+**Properties**:
 
    # Supertropical matrix multiplication
-   C = A * B
-   print("A ⊗ B:")
-   print(C)
 
-**Matrix Transpose**:
+1. :math:`A \otimes A^\nabla \otimes A = A` (weak inverse property)   C = A * B
+
+2. :math:`A^\nabla \otimes A \otimes A^\nabla = A^\nabla`   print("A ⊗ B:")
+
+3. If :math:`\text{per}(A)` is tangible, then :math:`A^\nabla` provides a unique solution structure   print(C)
+
+
+
+4. Linear Systems over Supertropical Algebra**Matrix Transpose**:
+
+---------------------------------------------
 
 .. code-block:: python
 
-   # Transpose: [A^T]_ij = A_ji
+4.1 Homogeneous and Non-Homogeneous Systems
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   # Transpose: [A^T]_ij = A_ji
+
    A_T = A.transpose()
-   print("A^T:")
+
+As in ordinary linear algebra, linear systems over supertropical algebra can be classified into **homogeneous systems** and **non-homogeneous systems**. In supertropical algebra, the **ghost surpasses relation** will be used instead of the equality relation :math:`=`.   print("A^T:")
+
    print(A_T)
+
+A linear system over supertropical algebra is stated as :math:`A \otimes x \vDash b`. Meanwhile, if :math:`b = \mathcal{E}` where :math:`\mathcal{E}` is a vector whose elements are all :math:`\varepsilon`, then the system :math:`A \otimes x \vDash \mathcal{E}` is called a **homogeneous system** over supertropical algebra.
 
 **Matrix Power**:
 
-.. code-block:: python
+4.2 Solution Analysis
 
-   # Matrix exponentiation: A^k = A * A * ... * A
+^^^^^^^^^^^^^^^^^^^^^.. code-block:: python
+
+
+
+As has been explained in max-plus algebra theory, the max-plus algebra structure :math:`\mathbb{R}_{\max} = (\mathbb{R}_{\varepsilon}, \oplus, \otimes)` lacks inverse elements for the :math:`\oplus` operation. In other words, if :math:`a \in \mathbb{R}_{\varepsilon}`, there does not exist :math:`x \in \mathbb{R}_{\varepsilon}` satisfying :math:`a \oplus x = \varepsilon` if and only if :math:`a = \varepsilon`. This limitation makes it difficult to directly solve homogeneous linear systems :math:`A \otimes x = b` in :math:`\mathbb{R}_{\max}`.   # Matrix exponentiation: A^k = A * A * ... * A
+
    A_squared = A ** 2
-   print("A^2:")
+
+As a motivation from the discussion of homogeneous systems in :math:`\mathbb{R}_{\max}`, the solution for non-homogeneous linear systems :math:`A \otimes x \vDash b` will be provided.   print("A^2:")
+
    print(A_squared)
 
-   A_cubed = A ** 3
+4.3 Cramer's Rule
+
+^^^^^^^^^^^^^^^^^   A_cubed = A ** 3
+
    print("A^3:")
-   print(A_cubed)
 
-**Special Matrices**:
+The solution to the system :math:`A \otimes x \vDash b` can be found using **Cramer's rule** in supertropical algebra:   print(A_cubed)
 
-.. code-block:: python
 
-   # Identity matrix: [I]_ij = 0 if i=j, -∞ν otherwise
+
+.. math::**Special Matrices**:
+
+
+
+   x = \text{adj}(A) \otimes b \otimes (\text{per}(A))^{-1}.. code-block:: python
+
+
+
+where:   # Identity matrix: [I]_ij = 0 if i=j, -∞ν otherwise
+
    I = suptrop.Matrix.identity(3)
-   print("Identity matrix:")
-   print(I)
+
+- :math:`\text{per}(A)` is the **permanent** (supertropical determinant)   print("Identity matrix:")
+
+- :math:`\text{adj}(A)` is the **adjoint matrix**   print(I)
+
+- :math:`(\text{per}(A))^{-1} = -\text{per}(A)` in supertropical algebra
 
    # Pseudo-zero matrix: all entries are -∞ν (ghost)
-   Z_G = suptrop.Matrix.pseudo_zero(3)
+
+The matrix is **nonsingular** (has unique solution) if :math:`\text{per}(A)` is **tangible** (not ghost).   Z_G = suptrop.Matrix.pseudo_zero(3)
+
    print("Pseudo-zero matrix:")
-   print(Z_G)
 
-**Permanent (Supertropical Determinant)**:
+**Solution Steps**:   print(Z_G)
 
-.. code-block:: python
+
+
+1. Calculate :math:`\text{per}(A)` to check nonsingularity**Permanent (Supertropical Determinant)**:
+
+2. If :math:`\text{per}(A)` is tangible, calculate :math:`\text{adj}(A)`
+
+3. Apply Cramer's rule: :math:`x = \text{adj}(A) \otimes b \otimes (-\text{per}(A))`.. code-block:: python
+
+4. Verify: :math:`A \otimes x \vDash b`
 
    # Calculate permanent
-   perm_A = A.permanent()
-   print(f"Permanent of A: {perm_A}")
+
+References   perm_A = A.permanent()
+
+----------   print(f"Permanent of A: {perm_A}")
+
    print(f"Is tangible (nonsingular)? {perm_A.is_tangible()}")
 
-**Pseudo-Inverse**:
+- Izhakian, Z., & Rowen, L. (2010). *Supertropical algebra*. Advances in Mathematics.
 
-.. code-block:: python
+- Subiono (2022). *Aljabar Min-Max Plus dan Terapannya*. Departemen Matematika ITS, Surabaya, 22 February 2022.**Pseudo-Inverse**:
+
+
+
+Implementation Notes.. code-block:: python
+
+--------------------
 
    # Calculate A^♯ (pseudo-inverse)
-   A_sharp = A.pseudo_inverse()
+
+This package implements the supertropical semiring with:   A_sharp = A.pseudo_inverse()
+
    print("A^♯:")
-   print(A_sharp)
 
-4. Linear Systems over Supertropical Algebra
----------------------------------------------
+- **Tangible elements**: Standard numerical values   print(A_sharp)
 
-4.1 Homogeneous and Non-Homogeneous Systems
+- **Ghost elements**: Values marked with the ``is_ghost`` flag, displayed with ν
+
+- **Zero element**: Represented as ``-math.inf``4. Linear Systems over Supertropical Algebra
+
+- **Efficient operations**: Using NumPy arrays for matrix computations---------------------------------------------
+
+
+
+**For interactive code examples with execution output**, see:4.1 Homogeneous and Non-Homogeneous Systems
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As in ordinary linear algebra, linear systems over supertropical algebra can be classified into **homogeneous systems** and **non-homogeneous systems**. In supertropical algebra, the **ghost surpasses relation** will be used instead of the equality relation :math:`=`.
+- :doc:`examples/01_supertropical_elements` - Elements and basic operations
 
-A homogeneous linear system over supertropical algebra is stated as :math:`A \otimes x \vDash b`. Meanwhile, if :math:`b = \mathcal{E}` where :math:`\mathcal{E}` is a vector whose elements are all :math:`\varepsilon`, then the system :math:`A \otimes x \vDash \mathcal{E}` is called a **homogeneous system** over supertropical algebra.
+- :doc:`examples/02_ghost_surpasses` - Ghost surpasses relationAs in ordinary linear algebra, linear systems over supertropical algebra can be classified into **homogeneous systems** and **non-homogeneous systems**. In supertropical algebra, the **ghost surpasses relation** will be used instead of the equality relation :math:`=`.
+
+- :doc:`examples/03_matrices` - Matrix operations and permanent
+
+- :doc:`examples/04_linear_systems` - Solving linear systems with Cramer's ruleA homogeneous linear system over supertropical algebra is stated as :math:`A \otimes x \vDash b`. Meanwhile, if :math:`b = \mathcal{E}` where :math:`\mathcal{E}` is a vector whose elements are all :math:`\varepsilon`, then the system :math:`A \otimes x \vDash \mathcal{E}` is called a **homogeneous system** over supertropical algebra.
+
 
 4.2 Solution Analysis
 ^^^^^^^^^^^^^^^^^^^^^

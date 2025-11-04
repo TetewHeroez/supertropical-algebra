@@ -155,11 +155,11 @@ print(Z_G)
 
 ## Pseudo-Inverse
 
-Calculate the pseudo-inverse A^♯ of a matrix.
+Calculate the pseudo-inverse A^∇ of a matrix.
 
 For a square matrix A:
-- If |A| ∈ T (tangible): A^♯ = (1/|A|) ⊗ adj(A)
-- If |A| ∈ G₀ (ghost, |A| ≠ ε): A^♯ = (1/|A|)^ν ⊗ adj(A)
+- If |A| ∈ T (tangible): A^∇ = (1/|A|) ⊗ adj(A)
+- If |A| ∈ G₀ (ghost, |A| ≠ ε): A^∇ = (1/|A|)^ν ⊗ adj(A)
 
 where |A| is the permanent and 1/a = -a in supertropical algebra.
 
@@ -170,7 +170,7 @@ A = suptrop.Matrix([[2, 1],
 
 # Calculate pseudo-inverse
 A_sharp = A.pseudo_inverse()
-print("A^♯:")
+print("A^∇:")
 print(A_sharp)
 
 # Calculate permanent to verify
@@ -178,9 +178,9 @@ perm = A.permanent()
 print(f"\nPermanent |A|: {perm}")
 
 # Verify property (for tangible permanent)
-# A * A^♯ should relate to identity-like behavior
+# A * A^∇ should relate to identity-like behavior
 result = A * A_sharp
-print("\nA * A^♯:")
+print("\nA * A^∇:")
 print(result)
 ```
 
@@ -222,7 +222,7 @@ print(f"\nPseudo-zero Z_G:\n{Z_G}")
 # 5. Pseudo-inverse
 print("\n=== Pseudo-Inverse ===")
 A_sharp = A.pseudo_inverse()
-print(f"A^♯:\n{A_sharp}")
+print(f"A^∇:\n{A_sharp}")
 ```
 
 ## Mathematical Properties
@@ -242,7 +242,7 @@ print(f"A^♯:\n{A_sharp}")
 - Defined only for square matrices
 - Requires |A| ≠ ε (permanent not epsilon)
 - Generalizes matrix inversion in supertropical algebra
-- A * A^♯ relates to pseudo-identity behavior
+- A * A^∇ relates to pseudo-identity behavior
 
 ## References
 
