@@ -67,8 +67,11 @@ nbsphinx_prolog = r"""
     <div style="text-align: center; margin: 10px 0;">
         <a href="https://colab.research.google.com/github/TetewHeroez/supertropical-algebra/blob/main/docs/source/{{ env.doc2path(env.docname, base=None) }}" 
            target="_blank" 
-           style="display: inline-block; padding: 8px 16px; background-color: #f5f5f5; color: #333; text-decoration: none; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
-            📓 Open in Google Colab
+           style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background-color: #f5f5f5; color: #333; text-decoration: none; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Colab_pic.png/250px-Google_Colab_pic.png" 
+                 alt="Colab" 
+                 style="height: 20px; width: 20px;">
+            Open in Google Colab
         </a>
     </div>
 """
