@@ -248,3 +248,143 @@ class SupertropicalMatrix:
         x = (adj_A * b_reshaped) * per_A_inv
         
         return x
+    
+    def transpose(self):
+        """
+        Returns the transpose of the matrix A^T.
+        
+        For matrix A, transpose A^T is defined as [A^T]_ij = A_ji.
+        
+        Returns:
+            SupertropicalMatrix: The transposed matrix
+        """
+        transposed_data = np.empty((self.shape[1], self.shape[0]), dtype=object)
+        
+        for i in range(self.shape[0]):
+            for j in range(self.shape[1]):
+                transposed_data[j, i] = self.data[i, j]
+        
+        return SupertropicalMatrix(transposed_data)
+    
+    def __pow__(self, k):
+        """
+        Matrix power: A^k = A * A * ... * A (k times).
+        
+        Uses supertropical matrix multiplication.
+        
+        Args:
+            k (int): Non-negative integer exponent
+            
+        Returns:
+            SupertropicalMatrix: The result of A^k
+        """
+        if not isinstance(k, int) or k < 0:
+            raise ValueError("Exponent must be a non-negative integer")
+        
+        if self.shape[0] != self.shape[1]:
+            raise ValueError("Matrix must be square for exponentiation")
+        
+        if k == 0:
+            # A^0 = I (identity matrix)
+            return SupertropicalMatrix.identity(self.shape[0])
+        
+        result = self
+        for _ in range(k - 1):
+            result = result * self
+        
+        return result
+    
+    @staticmethod
+    def identity(n):
+        """
+        Creates an n×n identity matrix I.
+        
+        Identity matrix is defined as:
+        [I]_ij = { 0   if i = j
+                  { ε   if i ≠ j
+        
+        where ε = -∞ (represented as ghost element with value -inf).
+        
+        Args:
+            n (int): Size of the square identity matrix
+            
+        Returns:
+            SupertropicalMatrix: n×n identity matrix
+        """
+        import math
+        identity_data = np.empty((n, n), dtype=object)
+        
+        for i in range(n):
+            for j in range(n):
+                if i == j:
+                    identity_data[i, j] = SupertropicalElement(0, is_ghost=False)
+                else:
+                    identity_data[i, j] = SupertropicalElement(-math.inf, is_ghost=True)
+        
+        return SupertropicalMatrix(identity_data)
+    
+    @staticmethod
+    def pseudo_zero(n):
+        """
+        Creates an n×n pseudo-zero matrix Z_G.
+        
+        Pseudo-zero matrix is defined as:
+        [Z_G]_ij = { ε        if i = j
+                   { ε or aν  if i ≠ j
+        
+        where ε = -∞ and aν ∈ G_0 (any ghost element).
+        
+        For simplicity, we use ε = -∞ as ghost for all entries.
+        
+        Args:
+            n (int): Size of the square pseudo-zero matrix
+            
+        Returns:
+            SupertropicalMatrix: n×n pseudo-zero matrix
+        """
+        import math
+        pseudo_zero_data = np.empty((n, n), dtype=object)
+        
+        for i in range(n):
+            for j in range(n):
+                # All entries are ε (ghost -infinity)
+                pseudo_zero_data[i, j] = SupertropicalElement(-math.inf, is_ghost=True)
+        
+        return SupertropicalMatrix(pseudo_zero_data)
+    
+    def pseudo_inverse(self):
+        """
+        Calculates the pseudo-inverse A^♯ of the matrix.
+        
+        Pseudo-inverse is defined as:
+        - If |A| ∈ T: A^♯ = (1_R / |A|) ⊗ adj(A)
+        - If |A| ∈ G_0 with |A| ≠ ε: A^♯ = (1_R / |A|)^ν ⊗ adj(A)
+        
+        where 1_R is the multiplicative identity and |A| is the permanent.
+        
+        Returns:
+            SupertropicalMatrix: The pseudo-inverse matrix
+            
+        Raises:
+            ValueError: If matrix is not square or permanent is epsilon
+        """
+        if self.shape[0] != self.shape[1]:
+            raise ValueError("Matrix must be square for pseudo-inverse")
+        
+        # Calculate permanent
+        perm = self.permanent()
+        
+        # Check if permanent is epsilon (not invertible)
+        if perm.value == -np.inf:
+            raise ValueError("Matrix permanent is epsilon, pseudo-inverse undefined")
+        
+        # Calculate adjoint
+        adj_A = self.adjoint()
+        
+        # Calculate (1/|A|) or (1/|A|)^ν
+        # In supertropical: 1/a = -a (classical negation)
+        inv_perm_value = -perm.value
+        inv_perm = SupertropicalElement(inv_perm_value, is_ghost=perm.is_ghost)
+        
+        # Pseudo-inverse = inv_perm ⊗ adj(A)
+        return adj_A * inv_perm

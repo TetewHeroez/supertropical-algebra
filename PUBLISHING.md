@@ -17,6 +17,7 @@ This is the **modern, secure way** - no API tokens needed!
 2. Go to your account settings → "Publishing" section
 3. Click "Add a new pending publisher"
 4. Fill in:
+
    - **PyPI Project Name**: `supertropical-algebra`
    - **Owner**: `TetewHeroez`
    - **Repository name**: `supertropical-algebra`
@@ -31,6 +32,7 @@ This is the **modern, secure way** - no API tokens needed!
 2. Settings → Environments → "New environment"
 3. Name: `pypi`
 4. (Optional) Add protection rules:
+
    - ✅ Required reviewers (add yourself)
    - ✅ Wait timer: 0 minutes
 
@@ -39,16 +41,18 @@ This is the **modern, secure way** - no API tokens needed!
 ### 3. Create a Release (First Publish)
 
 #### Option A: Via GitHub UI (Recommended)
+
 1. Go to https://github.com/TetewHeroez/supertropical-algebra/releases
 2. Click "Create a new release"
 3. Click "Choose a tag" → Type `v0.1.0` → "Create new tag"
 4. Release title: `v0.1.0 - Initial Release`
 5. Description:
+
    ```
    ## 🎉 First Release!
-   
+
    Initial release of supertropical-algebra package.
-   
+
    ### Features
    - ✅ Supertropical elements (tangible and ghost)
    - ✅ Addition (⊕) and multiplication (⊙) operations
@@ -56,18 +60,22 @@ This is the **modern, secure way** - no API tokens needed!
    - ✅ Linear system solver using Cramer's rule
    - ✅ Comprehensive documentation
    ```
+
 6. Click "Publish release"
 
 #### Option B: Via Git Command Line
+
 ```bash
 git tag -a v0.1.0 -m "Release version 0.1.0"
 git push origin v0.1.0
 ```
+
 Then create release on GitHub from the tag.
 
 ### 4. Verify Publication
 
 After creating the release:
+
 1. GitHub Actions will automatically run
 2. Check https://github.com/TetewHeroez/supertropical-algebra/actions
 3. Wait for "Publish to PyPI" workflow to complete (green ✓)
@@ -76,6 +84,7 @@ After creating the release:
 ### 5. Install Your Package
 
 After successful publish:
+
 ```bash
 pip install supertropical-algebra
 ```
@@ -85,11 +94,13 @@ pip install supertropical-algebra
 To publish new versions:
 
 1. Update version in `pyproject.toml`:
+
    ```toml
    version = "0.1.1"  # or 0.2.0, 1.0.0, etc.
    ```
 
 2. Commit and push:
+
    ```bash
    git add pyproject.toml
    git commit -m "Bump version to 0.1.1"
@@ -97,10 +108,12 @@ To publish new versions:
    ```
 
 3. Create new release:
+
    ```bash
    git tag -a v0.1.1 -m "Release version 0.1.1"
    git push origin v0.1.1
    ```
+
    Then create GitHub release from the tag.
 
 4. GitHub Actions will automatically publish to PyPI!
@@ -110,11 +123,13 @@ To publish new versions:
 If you prefer manual publishing:
 
 1. Install build tools:
+
    ```bash
    pip install build twine
    ```
 
 2. Build package:
+
    ```bash
    python -m build
    ```
@@ -127,15 +142,18 @@ If you prefer manual publishing:
 ## Troubleshooting
 
 ### "Project name already exists"
+
 - Choose a different name in `pyproject.toml`
 - Try: `supertropical-algebra-math`, `supertropical-lib`, etc.
 
 ### "Invalid or non-existent authentication"
+
 - Make sure you configured Trusted Publishing on PyPI
 - Check environment name matches (`pypi`)
 - Verify workflow name is correct (`publish-to-pypi.yml`)
 
 ### "Permission denied"
+
 - Add `id-token: write` permission in workflow (already done ✅)
 - Check GitHub environment protection rules
 
@@ -153,6 +171,7 @@ If you prefer manual publishing:
 4. **Celebrate!** 🎉
 
 Your package will be installable worldwide via:
+
 ```bash
 pip install supertropical-algebra
 ```

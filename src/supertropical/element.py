@@ -97,6 +97,33 @@ class SupertropicalElement:
         # Ensures '5 * element' works [35]
         return self.__mul__(other)
 
+    def __pow__(self, exponent):
+        """
+        Performs exponentiation (power) of element.
+        
+        For element a and integer k:
+        a^k = a * a * ... * a (k times) using supertropical multiplication
+        
+        In supertropical algebra: a^k = k * a (classical multiplication of value)
+        If a is ghost, result is also ghost.
+        
+        Args:
+            exponent (int): The power to raise the element to
+            
+        Returns:
+            SupertropicalElement: The result of a^exponent
+        """
+        if not isinstance(exponent, int) or exponent < 0:
+            raise ValueError("Exponent must be a non-negative integer")
+        
+        if exponent == 0:
+            # a^0 = 0 (multiplicative identity in supertropical)
+            return SupertropicalElement(0, is_ghost=False)
+        
+        # a^k = k * a in supertropical multiplication
+        new_val = exponent * self.value
+        return SupertropicalElement(new_val, is_ghost=self.is_ghost)
+
     # --- Representation & Comparison Methods [36, 37] ---
     
     def __repr__(self):
@@ -137,3 +164,25 @@ class SupertropicalElement:
     def is_tangible(self) -> bool:
         """Returns True if this element is tangible."""
         return not self.is_ghost
+    
+    def ghost_surpasses(self, other) -> bool:
+        """
+        Ghost surpasses relation (⊨).
+        
+        Definition: x ⊨ y if x = y ⊕ z for some z ∈ G_0 (ghost element).
+        
+        In practice: x ⊨ y when x and y have the same value and x is ghost.
+        This means x "ghost surpasses" y.
+        
+        Args:
+            other: Another SupertropicalElement
+            
+        Returns:
+            bool: True if self ghost-surpasses other
+        """
+        other = self._coerce(other)
+        if other is NotImplemented:
+            return False
+        
+        # x ⊨ y if x has same value as y and x is ghost
+        return self.value == other.value and self.is_ghost
