@@ -77,7 +77,7 @@ Contents
    :maxdepth: 2
    :caption: User Guide
 
-   theory
+   getting_started
    examples/tutorial
    advanced
 
